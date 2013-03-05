@@ -112,9 +112,9 @@ namespace eval FetchBeer {
 				[string index $nick [expr [string length $nick] - 1]] == "o" ||
 				[string index $nick [expr [string length $nick] - 1]] == "u" ||
 				[string index $nick [expr [string length $nick] - 1]] == "y" ||
-				[string index $nick [expr [string length $nick] - 1]] == "ä" ||
-				[string index $nick [expr [string length $nick] - 1]] == "ö" ||
-				[string index $nick [expr [string length $nick] - 1]] == "å"} {
+				[string index $nick [expr [string length $nick] - 1]] == "Ã¤" ||
+				[string index $nick [expr [string length $nick] - 1]] == "Ã¶" ||
+				[string index $nick [expr [string length $nick] - 1]] == "Ã¥"} {
 			set fmt1 "%s %s %s %slle"
 		} else {
 			set fmt1 "%s %s %s %s:lle"

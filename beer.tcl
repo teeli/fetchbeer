@@ -52,8 +52,8 @@ namespace eval FetchBeer {
     # oktoberfest: 
     set oktoberfestListUrl "http://olutopas.info/selaa.php?class=kausi&id=4"
     # regular expressions to parse lists (don't change these)
-    set resultregexp {\<a href=\"\?resultpage=([0-9]*)}
-    set beerregexp {\<a href=\"\/olut\/([0-9]*)\/[^\"]*\" target=\"leftFrame\"\>([^\<]*)\<\/a\>}
+    set resultregexp {<a href=\"\?resultpage=([0-9]*)}
+    set beerregexp {<a href=\"\/olut\/([0-9]*)\/[^\"]*\" target=\"leftFrame\">([^\<]*)<\/a>}
 
     # BINDS
     bind pub - !olut FetchBeer::beerpub

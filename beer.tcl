@@ -52,8 +52,8 @@ namespace eval FetchBeer {
     # oktoberfest: 
     set oktoberfestListUrl "http://olutopas.info/selaa.php?class=kausi&id=4"
     # regular expressions to parse lists (don't change these)
-    set resultregexp {<a href=\"\?resultpage=([0-9]*)}
-    set beerregexp {<a href=\"\/olut\/([0-9]*)\/[^\"]*\" target=\"leftFrame\">([^\<]*)<\/a>}
+    set resultregexp {<a href=\"\?resultpage=([0-9]*)[^\"]*\">}
+    set beerregexp {<a href=\"/olut/([0-9]*)/[^\"]*\" target=\"leftFrame\">([^<]*)</a>}
 
     # BINDS
     bind pub - !olut FetchBeer::beerpub
@@ -161,7 +161,7 @@ namespace eval FetchBeer {
             if {[catch {exec curl --url $listUrl$page --output $tempdir$tempfile} results]} {
                 set pagefile [open $tempdir$tempfile]
                 set pagedata [read $pagefile]
-                foreach {full id name} [regexp -all -nocase -inline {\<a href=\"\/olut\/([0-9]*)\/[^\"]*\" target=\"leftFrame\"\>([^\<]*)\<\/a\>} $pagedata] {
+                foreach {full id name} [regexp -all -nocase -inline $beerregexp $pagedata] {
                     puts $cachefileHandle [list [list $id $name]]
                 }
                 # close & delete tempfile

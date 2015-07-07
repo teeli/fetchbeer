@@ -14,6 +14,7 @@
 #    .updatebeer - force beer list update
 #    
 #    Changelog:
+#    1.5.1 Fixed beer regexp
 #    1.5 Temp dir as parameter
 #    1.4 Added list URL and regexps as config variables
 #    1.3 Fixed Regexps for new format & fixed "too many open 
@@ -53,7 +54,7 @@ namespace eval FetchBeer {
     set oktoberfestListUrl "http://olutopas.info/selaa.php?class=kausi&id=4"
     # regular expressions to parse lists (don't change these)
     set resultregexp {<a href=\"\?resultpage=([0-9]*)[^\"]*\">}
-    set beerregexp {<a href=\"/olut/([0-9]*)/[^\"]*\" target=\"leftFrame\">([^<]*)</a>}
+    set beerregexp {<a href=\"/olut/([0-9]*)/[^\"]*\" target=\"leftFrame\"><i>([^<]*)</i></a>}
 
     # BINDS
     bind pub - !olut FetchBeer::beerpub
@@ -68,7 +69,7 @@ namespace eval FetchBeer {
     bind time - "00 00 % % %" FetchBeer::update
     
     # SCRIPT
-    set scriptVersion 1.5
+    set scriptVersion 1.5.1
     
     # Send message to channel
     proc beerpub {nick uhost handle chan text} {

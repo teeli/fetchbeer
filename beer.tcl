@@ -14,6 +14,7 @@
 #    .updatebeer - force beer list update
 #    
 #    Changelog:
+#    1.5.2 Updated default URLs to use https
 #    1.5.1 Fixed beer regexp
 #    1.5 Temp dir as parameter
 #    1.4 Added list URL and regexps as config variables
@@ -43,15 +44,15 @@ namespace eval FetchBeer {
 
     # LISTS
     # normal
-    set listUrl "http://olutopas.info/bycat.php?cat=abc"
+    set listUrl "https://olutopas.info/bycat.php?cat=abc"
     # xmas list: 
-    set xmasListUrl "http://olutopas.info/selaa.php?class=kausi&id=1"
+    set xmasListUrl "https://olutopas.info/selaa.php?class=kausi&id=1"
     # easter:
-    set easterListUrl "http://olutopas.info/selaa.php?class=kausi&id=2"
+    set easterListUrl "https://olutopas.info/selaa.php?class=kausi&id=2"
     # summer:
-    set summerListUrl "http://olutopas.info/selaa.php?class=kausi&id=3"
+    set summerListUrl "https://olutopas.info/selaa.php?class=kausi&id=3"
     # oktoberfest: 
-    set oktoberfestListUrl "http://olutopas.info/selaa.php?class=kausi&id=4"
+    set oktoberfestListUrl "https://olutopas.info/selaa.php?class=kausi&id=4"
     # regular expressions to parse lists (don't change these)
     set resultregexp {<a href=\"\?resultpage=([0-9]*)[^\"]*\">}
     set beerregexp {<a href=\"/olut/([0-9]*)/[^\"]*\" target=\"leftFrame\"><i>([^<]*)</i></a>}
